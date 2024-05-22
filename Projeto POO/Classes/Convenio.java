@@ -28,8 +28,14 @@ public class Convenio extends Consulta{
     }
 
 
-    public void setCodConvenio(int codConvenio){
-        this.codConvenio = codConvenio;
+    public void setCodConvenio(int codConvenio) throws ConvNegativoException{
+        if (codConvenio > 0){
+
+            this.codConvenio = codConvenio;
+        }
+        else{
+            throw new ConvNegativoException();
+        }
     }
 
     public void setDesconto(float desconto){

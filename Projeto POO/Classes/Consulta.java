@@ -1,6 +1,6 @@
 //Carlos Eduardo Mazalli Drago Lopes
 
-public abstract class Consulta{
+public abstract class Consulta implements VerificacaoMedico{
     
     private int codConsulta;
     private String paciente;
@@ -62,5 +62,26 @@ public abstract class Consulta{
     public void setPreco(float preco){
         this.preco = preco;
     }
+
+
+
+// Polimorfismo por Sobrescrição ==============
+
+    public boolean checaCrm(String crm){
+
+        if(crm.length() > 4){
+            
+            // CHECAR SOMENTE NUMEROS
+            return true;
+
+        }
+
+        else {
+            return false;
+        }
+
+    }
+
+//============================================
 
 }

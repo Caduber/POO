@@ -1,25 +1,26 @@
 //Carlos Eduardo Mazalli Drago Lopes
 
-public class Medico {
-    private int crm;
+public class Medico{
+    private String crm;
 
     public Medico(){
-        crm = -1;
+        crm = "Sem Crm";
     }
 
 //Polimorfismo por Sobrecarga
-    public Medico(int crm){
+    public Medico(String crm){
         this.crm = crm;
     }
 
     
 
-    public int getCrm(){
+    public String getCrm(){
         return crm;
     }
 
-    public void setCrm(int crm){
+    public void setCrm(String crm){
         this.crm = crm;
     }
+
 
 }
