@@ -1,5 +1,5 @@
 // Carlos Eduardo Mazalli Drago Lopes
-public class Secretario extends Funcionario {
+public class Secretario extends Funcionario implements CadastraMedico{
 
 	private Medico patrao;
 
@@ -25,21 +25,36 @@ public Secretario( int telefone, Medico patrao){
 
 
 
-	public int getTelefone() {
+	public final int getTelefone() {
 		return telefone;
 	}
 
-	public Medico getPatrao(){
+	public final Medico getPatrao(){
 		return patrao;
 	}
 
 
-	public void setTelefone(int telefone) {
+	public final void setTelefone(int telefone) {
 		this.telefone = telefone;
 	}
 
-	public void setPatrao(Medico patrao){
+	public final void setPatrao(Medico patrao){
 		this.patrao = patrao;
 	}
+
+	//Polimorfismo por sobrescricao
+
+
+	public final Medico cadastrarMedico(String frase) {
+
+		Medico med = new Medico();
+        Leitura l2 = new Leitura();
+
+        med.setCrm(l2.entDados(frase));
+
+		return med;
+
+	}
+
 
 }

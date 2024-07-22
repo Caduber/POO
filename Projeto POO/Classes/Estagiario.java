@@ -1,5 +1,5 @@
 // Carlos Eduardo Mazalli Drago Lopes
-public class Estagiario extends Funcionario {
+public class Estagiario extends Funcionario{
 
 	private String faculdade;
 
@@ -26,21 +26,21 @@ public Estagiario( String faculdade, Medico supervisor){
 
 
 
-	public String getFaculdade() {
+	public final String getFaculdade() {
 		return faculdade;
 	}
 
-	public Medico getSupervisor() {
+	public final Medico getSupervisor() {
 		return supervisor;
 	}
 
 
 
-	public void setFaculdade(String faculdade) {
+	public final void setFaculdade(String faculdade) {
 		this.faculdade = faculdade;
 	}
 
-	public void setSupervisor(Medico supervisor) {
+	public final void setSupervisor(Medico supervisor) {
 		this.supervisor = supervisor;
 	}
 

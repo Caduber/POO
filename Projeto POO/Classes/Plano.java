@@ -26,19 +26,19 @@ public class Plano{
 
 
 
-	public int getCodPlano(){
+	public final int getCodPlano(){
 		return codPlano;
 	}
 
-	public boolean getAutorizado(){
+	public final boolean getAutorizado(){
 		return autorizado;
 	}
 
-	public void setCodPlano(int codPlano){
+	public final void setCodPlano(int codPlano){
 		this.codPlano = codPlano;
 	}
 
-	public void setAutorizado(boolean autorizado){
+	public final void setAutorizado(boolean autorizado){
 		this.autorizado = autorizado;
 	}
 

@@ -24,4 +24,32 @@ public class Leitura{
 		return ret;
 	}
 
+
+
+	public String entNum(String rotulo) throws EntradaException{
+
+		System.out.println(rotulo);
+
+		InputStreamReader teclado = new InputStreamReader(System.in);
+		BufferedReader buff = new BufferedReader(teclado);
+		
+		String ret ="";
+			
+		try{
+			ret = buff.readLine();
+		}
+		catch(IOException ioe){
+			System.out.println("\nERRO de sistema: RAM - TECLADO");
+		}
+
+		if(ret.matches("[A-z]+" )) {
+			System.out.println("Utilize apenas numeros");
+			return entNum(rotulo);
+		}
+		else{
+			return ret;
+		}
+
+	}
+
 }

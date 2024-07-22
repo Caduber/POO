@@ -1,5 +1,5 @@
 // Carlos Eduardo Mazalli Drago Lopes
-public class Consulta {
+public class Consulta implements CadastraMedico{
 
 	private int codConsulta;
 
@@ -7,48 +7,74 @@ public class Consulta {
 
 	private float preco;
 
+	private Medico clinico;
+
 /////////////
 
 	public Consulta() {
 		codConsulta = -1;
 		cliente = new Paciente();
 		preco = 0.00f;
+		clinico = new Medico();
 	}
 
 	//Polimorfismo Sobrecarga
 
-	public Consulta(int codConsulta, Paciente cliente, float preco) {
+	public Consulta(int codConsulta, Paciente cliente, float preco, Medico clinico) {
 		this.codConsulta = codConsulta;
 		this.cliente = cliente;
 		this.preco = preco;
+		this.clinico = clinico;
 	}
 
 /////////////
 
-	public int getCodConsulta() {
+	public final int getCodConsulta() {
 		return codConsulta;
 	}
 
-	public Paciente getCliente() {
+	public final Paciente getCliente() {
 		return cliente;
 	}
 
-	public float getPreco() {
+	public final float getPreco() {
 		return preco;
 	}
 
+	public final Medico getClinico() {
+		return clinico;
+	}
 
 
-	public void setCodConsulta(int codConsulta) {
+	public final void setCodConsulta(int codConsulta) {
 		this.codConsulta = codConsulta;
 	}
 
-	public void setCliente(Paciente cliente) {
+	public final void setCliente(Paciente cliente) {
 		this.cliente = cliente;
 	}
 
-	public void setPreco(float preco) {
+	public final void setPreco(float preco) {
 		this.preco = preco;
 	}
+
+	public final void setClinico(Medico clinico) {
+		this.clinico = clinico;
+	}
+
+
+	//Polimorfismo por sobrescricao
+
+	public final Medico cadastrarMedico(String frase) {
+		
+        Medico med = new Medico();
+        Leitura l2 = new Leitura();
+
+        med.setCrm(l2.entDados(frase));
+
+		return med;
+
+	}
+
 
 }

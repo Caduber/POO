@@ -36,45 +36,45 @@ public class Paciente {
 	/////////////
 
 
-	public String getCpf() {
+	public final String getCpf() {
 		return cpf;
 	}
 	
-	public String getNomePaciente() {
+	public final String getNomePaciente() {
 		return nomePaciente;
 	}
 
-	public int getCodPaciente() {
+	public final int getCodPaciente() {
 		return codPaciente;
 	}
 	
-	public int getDependentes() {
+	public final int getDependentes() {
 		return dependentes;
 	}
 
-	public Plano getPlano() {
+	public final Plano getPlano() {
 		return plano;
 	}
 
 
 
-	public void setCpf(String cpf) {
+	public final void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
-	public void setNomePaciente(String nomePaciente) {
+	public final void setNomePaciente(String nomePaciente) {
 		this.nomePaciente = nomePaciente;
 	}
 
-	public void setCodPaciente(int codPaciente) {
+	public final void setCodPaciente(int codPaciente) {
 		this.codPaciente = codPaciente;
 	}
 	
-	public void setDependentes(int dependentes) {
+	public final void setDependentes(int dependentes) {
 		this.dependentes = dependentes;
 	}
 
-	public void setPlano(Plano plano) {
+	public final void setPlano(Plano plano) {
 		this.plano = plano;
 	}
 
