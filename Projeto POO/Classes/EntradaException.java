@@ -37,6 +37,20 @@ public class EntradaException extends Exception {
             }
 
 
+        public int trataEntInt() throws NumberFormatException {     
+    
+            String ret = "";
+
+            ret = l3.entDados("Entrada Invalida, por favor insira apenas numeros");
+    
+            try{
+                return Integer.parseInt(ret);                   
+            }
+            catch(NumberFormatException nfe){
+                return trataEntInt();
+            }
+        }
+
     // public String entInvNum(String rotulo) {
 
     //     String retorno = "";

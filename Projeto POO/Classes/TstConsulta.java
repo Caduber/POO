@@ -55,34 +55,105 @@ public class TstConsulta {
 			catch(EntradaException ee){
 				med.setCrm(ee.entInvChar("Insira o CRM do Medico"));
 			}
-			med.setSalario(Float.parseFloat(l.entDados("Insira o salario do Medico")));
+			try{
+				med.setSalario(Float.parseFloat(l.entNum("Insira o salario do Medico")));
+			}
+			catch(NumberFormatException nfe){
+				EntradaException ee = new EntradaException();
+				med.setSalario(ee.trataEntFloat());
+			}
+			catch(EntradaException ee){
+				med.setSalario(ee.trataEntFloat());
+			}
 			med.setEspecialidade(l.entDados("Insira a especialidade do medico"));
 			break;
 
 			case 3:
-			sec.setTelefone(Integer.parseInt(l.entDados("Insira o telefone do secretario (somente numeros)")));
-			sec.setSalario(Float.parseFloat(l.entDados("Insira o salario do secretario")));
+			try{
+				sec.setTelefone(Integer.parseInt(l.entDados("Insira o telefone do secretario (somente numeros)")));
+			}
+			catch(NumberFormatException nfe){
+				EntradaException ee = new EntradaException();
+				sec.setTelefone(ee.trataEntInt());
+			}
+			try{
+			sec.setSalario(Float.parseFloat(l.entNum("Insira o salario do secretario")));
+			}
+			catch(NumberFormatException nfe){
+				EntradaException ee = new EntradaException();
+				sec.setSalario(ee.trataEntFloat());
+			}
+			catch(EntradaException ee){
+				sec.setSalario(ee.trataEntFloat());
+			}
+
+			// A refazer a interface
 			sec.setPatrao(sec.cadastrarMedico("Insira o CRM do medico ao qual o secretario eh subordinado")); 
 			break;
-
+			//
+			
 			case 4: 
-			pac.setCpf(l.entDados("Insira o CPF do paciente"));
-			pac.setCodPaciente(Integer.parseInt(l.entDados("Insira o codigo de cadastro do paciente")));
+			try{
+				pac.setCpf(l.entNum("Insira o CPF do paciente"));
+			}
+			catch(EntradaException ee){
+				med.setCrm(ee.entInvChar("Insira o CPF do Paciente"));
+			}
+			try{
+				pac.setCodPaciente(Integer.parseInt(l.entDados("Insira o codigo de cadastro do paciente")));
+			}
+			catch(NumberFormatException nfe){
+				EntradaException ee = new EntradaException();
+				pac.setCodPaciente(ee.trataEntInt());
+			}
 			pac.setNomePaciente(l.entDados("Insira o nome do paciente"));
+
+			try{
 			pac.setDependentes(Integer.parseInt(l.entDados("Insira quantos dependentes o paciente possui")));
+			}
+			catch(NumberFormatException nfe){
+				EntradaException ee = new EntradaException();
+				pac.setDependentes(ee.trataEntInt());
+			}
 			break;
 
 			case 5:
-			pac.getPlano().setCodPlano(Integer.parseInt(l.entDados("Insira o codigo do plano para autorizar a consulta")));
+			try {
+				pac.getPlano().setCodPlano(Integer.parseInt(l.entDados("Insira o codigo do plano para autorizar a consulta")));
+			}
+			catch (NumberFormatException nfe) {
+				EntradaException ee = new EntradaException();
+				pac.getPlano().setCodPlano(ee.trataEntInt());
+			}
+
 			pac.getPlano().setAutorizado(true);
 			l.entDados("Exame autorizado com sucesso!\nAperte \"enter\" para continuar");
 			break;
 
 			case 6:
-			cons.setCodConsulta(Integer.parseInt(l.entDados("Insira o codigo da consulta")));
+			try{
+				cons.setCodConsulta(Integer.parseInt(l.entDados("Insira o codigo da consulta")));
+			}
+			catch(NumberFormatException nfe){
+				EntradaException ee = new EntradaException();
+				pac.setDependentes(ee.trataEntInt());
+			}
+
 			cons.setCliente(pac);
-			cons.setPreco(Integer.parseInt(l.entDados("Insira o preco da consulta")));
+			
+			try{
+				cons.setPreco(Float.parseFloat(l.entDados("Insira o preco da consulta")));
+			}
+			catch(NumberFormatException nfe){
+				EntradaException ee = new EntradaException();
+				cons.setPreco(ee.trataEntFloat());
+			}
+
+			// A refazer a interface
+
 			cons.setClinico(cons.cadastrarMedico("Insira o CRM do medico que fara a consulta"));
+			//
+
 			break;
 
 			case 7:
