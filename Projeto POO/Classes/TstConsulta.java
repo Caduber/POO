@@ -1,7 +1,6 @@
 // Carlos Eduardo Mazalli Drago Lopes
 public class TstConsulta {
 
-
 	public static void main(String[] args) {
 
 		Leitura l = new Leitura();
@@ -136,7 +135,7 @@ public class TstConsulta {
 			}
 			catch(NumberFormatException nfe){
 				EntradaException ee = new EntradaException();
-				pac.setDependentes(ee.trataEntInt());
+				cons.setCodConsulta(ee.trataEntInt());
 			}
 
 			cons.setCliente(pac);
