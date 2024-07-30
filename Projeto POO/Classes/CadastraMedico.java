@@ -2,6 +2,6 @@
 
 public interface CadastraMedico {
 
-    public Medico cadastrarMedico(String frase);
+    public String cadastrarMedico(String frase);
 
 }

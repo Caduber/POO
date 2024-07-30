@@ -65,14 +65,20 @@ public class Consulta implements CadastraMedico{
 
 	//Polimorfismo por sobrescricao
 
-	public final Medico cadastrarMedico(String frase) {
+	public final String cadastrarMedico(String frase) {
 		
         Medico med = new Medico();
         Leitura l2 = new Leitura();
 
-        med.setCrm(l2.entDados(frase));
+		try{
+			med.setCrm(l2.entNum(frase));
+			return med.getCrm();
 
-		return med;
+		}
+		catch(EntradaException ee){
+			return ee.entInvChar("Entrada Invalida, por favor insira apenas numeros");
+		}
+
 
 	}
 

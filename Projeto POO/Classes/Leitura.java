@@ -42,12 +42,11 @@ public class Leitura{
 			System.out.println("\nERRO de sistema: RAM - TECLADO");
 		}
 
-		if(ret.matches("[A-z]+" )) {
-			System.out.println("Utilize apenas numeros");
-			return entNum(rotulo);
+		if(ret.matches("[0-9.]+") && !ret.matches("[.]")) {
+				return ret;
 		}
 		else{
-			return ret;
+			throw new EntradaException();
 		}
 
 	}

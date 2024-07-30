@@ -1,6 +1,7 @@
 // Carlos Eduardo Mazalli Drago Lopes
 public class TstConsulta {
 
+
 	public static void main(String[] args) {
 
 		Leitura l = new Leitura();
@@ -17,7 +18,7 @@ public class TstConsulta {
 			try{
 				menu = Integer.parseInt(l.entNum("Escolha:\n 1-Cadastrar Estagiario\n 2-Cadastrar Medico\n 3-Cadastrar Secretario\n 4-Cadastrar Paciente\n 5-Autorizar com Plano\n 6-Inserir Consulta\n 7-Imprimir Dados\n 0-SAIR"));
 			}
-			catch(EntradaException ee){
+			catch(EntradaException ee){ 
 				menu = Integer.parseInt(ee.entInvChar("Utilize apenas numeros"));
 			}
 
@@ -29,7 +30,6 @@ public class TstConsulta {
 				est.setFaculdade(l.entDados("Insira a faculdade do estagiario"));
 
 			try{
-				//usar ent dados ou ent num em todos!
 				est.setSalario(Float.parseFloat(l.entNum("Insira o salario do Estagiario")));
 			}
 			catch(NumberFormatException nfe){
@@ -52,7 +52,7 @@ public class TstConsulta {
 				med.setCrm(l.entNum("Insira o CRM do Medico"));
 			}
 			catch(EntradaException ee){
-				med.setCrm(ee.entInvChar("Insira o CRM do Medico"));
+				med.setCrm(ee.entInvChar("Sem letras, insira o CRM do Medico"));
 			}
 			try{
 				med.setSalario(Float.parseFloat(l.entNum("Insira o salario do Medico")));
@@ -86,17 +86,15 @@ public class TstConsulta {
 				sec.setSalario(ee.trataEntFloat());
 			}
 
-			// A refazer a interface
-			sec.setPatrao(sec.cadastrarMedico("Insira o CRM do medico ao qual o secretario eh subordinado")); 
+			sec.getPatrao().setCrm(sec.cadastrarMedico("Insira o CRM do medico ao qual o secretario eh subordinado")); 
 			break;
-			//
 			
 			case 4: 
 			try{
 				pac.setCpf(l.entNum("Insira o CPF do paciente"));
 			}
 			catch(EntradaException ee){
-				med.setCrm(ee.entInvChar("Insira o CPF do Paciente"));
+				pac.setCpf(ee.entInvChar("Insira o CPF do Paciente"));
 			}
 			try{
 				pac.setCodPaciente(Integer.parseInt(l.entDados("Insira o codigo de cadastro do paciente")));
@@ -148,10 +146,7 @@ public class TstConsulta {
 				cons.setPreco(ee.trataEntFloat());
 			}
 
-			// A refazer a interface
-
-			cons.setClinico(cons.cadastrarMedico("Insira o CRM do medico que fara a consulta"));
-			//
+			cons.getClinico().setCrm(cons.cadastrarMedico("Insira o CRM do medico que fara a consulta"));
 
 			break;
 
@@ -161,6 +156,8 @@ public class TstConsulta {
 			System.out.println("\n\nSECRETARIO:\n Telefone: " + sec.getTelefone() + "\n CRM Patrao: " + sec.getPatrao().getCrm() + "\n Salario: " + sec.getSalario());
 			System.out.println("\n\nPACIENTE:\n CPF: " + pac.getCpf() + "\n Codigo de Paciente: " + pac.getCodPaciente() + "\n Nome Paciente: " + pac.getNomePaciente() + "\n Dependentes: " + pac.getDependentes());
 			System.out.println("\n\nCONSULTA:\n Codigo da Consulta: " + cons.getCodConsulta() + "\n Cliente: " + cons.getCliente().getNomePaciente() + "\n Valor: " + cons.getPreco() + "\n Medico: " + cons.getClinico().getCrm());
+			System.out.println("\n\nPLANO:\n Codigo da Plano: " + pac.getPlano().getCodPlano() + "\n Autorizado: " + pac.getPlano().getAutorizado()+"\n");
+			
 			break;
 
 			default:

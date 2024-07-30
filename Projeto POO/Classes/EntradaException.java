@@ -10,13 +10,11 @@ public class EntradaException extends Exception {
 
         try{
             retorno = l3.entNum(comando);
+            return retorno;
         }
         catch(EntradaException ee){
-            System.out.println("Entrada invalida, nao utilize letras\n");
-            ee.entInvChar(comando);
+            return ee.entInvChar(comando);
         }   
-    
-        return retorno;
 
     }
 
@@ -50,16 +48,6 @@ public class EntradaException extends Exception {
                 return trataEntInt();
             }
         }
-
-    // public String entInvNum(String rotulo) {
-
-    //     String retorno = "";
-
-    //     try{
-    //         retorno = l3
-    //     }
-    // }
-
 
 
 }
