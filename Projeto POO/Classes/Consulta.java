@@ -78,7 +78,9 @@ public class Consulta implements CadastraMedico{
 		catch(EntradaException ee){
 			return ee.entInvChar("Entrada Invalida, por favor insira apenas numeros");
 		}
-
+		catch(CrmException ce){
+			return ce.corrigeCrm();
+		}
 
 	}
 

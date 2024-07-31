@@ -31,8 +31,14 @@ public class Medico extends Funcionario {
 	}
 
 
-    public void setCrm(String crm){
-        this.crm = crm;
+    public void setCrm(String crm) throws CrmException{
+
+		if( crm.length() >= 4 && crm.length() <= 5)
+			this.crm = crm;
+		else{
+			throw new CrmException();
+		}
+        
     }
 
 	public void setEspecialidade(String especialidade){
