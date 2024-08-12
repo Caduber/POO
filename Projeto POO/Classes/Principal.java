@@ -1,5 +1,8 @@
 // Carlos Eduardo Mazalli Drago Lopes
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Principal {
 
 	public static void main(String[] args) {
@@ -11,6 +14,10 @@ public class Principal {
 		Paciente pac = new Paciente();
 		//Plano é preenchido com reflexividade
 		Consulta cons = new Consulta();
+                
+                // Collections
+                
+                List<Medico> bdMed = new ArrayList<>();
 
 		int menu = -1;
 
@@ -59,7 +66,7 @@ public class Principal {
 					System.out.println("O CRM deve ter de 4 a 5 numeros");
 				}
 
-			}while(med.getCrm().length() < 4 || med.getCrm().length() > 5);
+			}while(est.getSupervisor().getCrm().length() < 4 || est.getSupervisor().getCrm().length() > 5);
 
 			
 			break;
@@ -216,3 +223,4 @@ public class Principal {
 	}
 
 }
+
